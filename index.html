@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap site</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <!--Navigation bar section starts here-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul id="navbarmenulist" class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#boardModal" data-toggle="modal">CREAT-NEW-BOARD
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                            <a class="nav-link" href = "#" onclick="clearLocaleStorage(event)">Clear
+                                                           </a>
+                        </li>
+                    <!--    
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                  data-placement="top" title="Click on here to subscribe for our recent news">
+                  CREAT-NEW-BOARD
+                </button>
+                 -->
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            onclick="createListOfBoardLinks(event)">
+                            BOARDS
+                        </a>
+                        <div id="dropdownmenumore" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <!--
+                            <a class="dropdown-item" href="#">BOARD-1</a>
+                            <a class="dropdown-item" href="#">BOARD-2</a>
+                            <a class="dropdown-item" href="#">BOARD-3</a>
+                           -->
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <section id="BoardsContainer" >
+      
+    </section>
+    
+<!-- <div id="SingleBoardContainerId">
+            <div id="specificBoardName">
+                <span id="headingSpan">Selected board name:</span>
+                <span id="boardIdSpan">1</span>
+            </div>
+            <div id="listContainer">
+                <div class="task-list" id="pending">
+                    <div class="task-header flex-container">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Done</span>
+                        <span style="display:none">listid</span>
+                    </div>
+
+
+                    <div class="todo-task">
+                        <div class="task-header">Sample card Header</div>
+                        <div class="task-description">Lorem Ipsum Dolor Sit Amet</div>
+                        <button>Edit</button>
+                    </div>
+                    <div class="addCardButton">
+                        <button id="save" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cardModal" data-placement="top"
+                            title="Click on here to subscribe for our recent news">Add Card</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="addListButton">
+            <button id="saveList" type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal" data-placement="top"
+                title="Click on here to add lists to the board" onclick="createList(boardTitle,listObj)">+Add list</button>
+        </div>-->
+
+
+    <!-- Board  Modal -->
+
+    <div class="modal fade" id="boardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: black">Board Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Add Board Title">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="close" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="save" type="button" class="btn btn-primary">Add Board</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End of Board modal-->
+    <!--List Modal-->
+
+    <div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: black">List Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="formGroupListTitleInput" placeholder="Add List Title">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="listClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="listSave" type="button" class="btn btn-primary">Add List</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End of list modal List Modal-->
+    <!-- Card Modal -->
+
+    <div class="modal fade" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: black">Card Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="formGroupCardTitleInput" placeholder="Add Card Title">
+
+                    </div>
+                    <div class="form-group">
+
+                        <input type="text" class="form-control" id="formGroupCardDescriptionInput" placeholder="Add Description">
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="cardClose" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="cardSave" type="button" class="btn btn-primary">Add Card</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of card modal-->
+
+    <!--IMPORTS OF THIRD PARTY LIBRARIES-->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="src/js/index.js"></script>
+    <script src="src/js/newBoards.js"></script>
+    <script src="src/js/eventHandlingMethods.js"></script>
+    <script src="src/js/createComponents.js"></script>
+    <script src="src/js/constants.js"></script>
+    <!--<script
+  src="https://code.jquery.com/ui/1.8.24/jquery-ui.min.js"
+  integrity="sha256-UOoxwEUqhp5BSFFwqzyo2Qp4JLmYYPTHB8l+1yhZij8="
+  crossorigin="anonymous">
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  </script>-->
+ 
+    
+
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+{
+    
+    "boards": [
+        { 
+            "boardId": 1,
+            boardTitle: "Board-1",
+            lists: [
+                {
+                    listId: 1,
+                    listTitle: "list-1",
+                    cards: [
+                        {
+                              cardId: 1,
+                              cardTitle: "card-1"
+                        },
+                        {
+                                cardId: 2,
+                                cardTitle: "card-2"
+                        }
+                    ]
+                },
+                {
+                    listId: 2,
+                    listTitle: "list-2",
+                    cards: [
+                        {
+                              cardId: 1,
+                              cardTitle: "card-1"
+                        },
+                        {
+                                cardId: 2,
+                                cardTitle: "card-2"
+                        }
+                    ]
+                }
+            ]
+        },
+        { 
+            boardId: 2,
+            boardTitle: "Board-2",
+            lists: [
+                {
+                    listId: 1,
+                    listTitle: "list-1",
+                    cards: [
+                        {
+                              cardId: 1,
+                              cardTitle: "card-1"
+                        },
+                        {
+                                cardId: 2,
+                                cardTitle: "card-2"
+                        }
+                    ]
+                },
+                {
+                    listId: 2,
+                    listTitle: "list-2",
+                    cards: [
+                        {
+                              cardId: 1,
+                              cardTitle: "card-1"
+                        },
+                        {
+                                cardId: 2,
+                                cardTitle: "card-2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
